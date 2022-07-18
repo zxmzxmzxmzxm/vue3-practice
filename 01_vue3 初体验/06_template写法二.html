@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="why">
+        <div>
+            <h2>{{counter}}</h2>
+            <button @click='add'>+1</button>
+            <button @click='desc'> -1</button>
+        </div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        Vue.createApp({
+            template: '#why', //本质是执行querySelector
+            data() {
+                return {
+                    counter: 100
+                }
+            },
+            methods: {
+                add() {
+                    this.counter += 1
+                },
+                desc() {
+                    this.counter -= 1
+                }
+            }
+        }).mount('#app')
+        
+
+        const foo = function(){
+            console.log(this)
+        }
+
+        foo(); //window
+
+        const foo1 = ()=>{
+            console.log(this) //window,箭头函数中不绑定this  去上层作用域中找this
+
+        }
+
+
+        const obj = {bar: foo};
+        obj.bar() //obj
+    </script>
+</body>
+
+</html>

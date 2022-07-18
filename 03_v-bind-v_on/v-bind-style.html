@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .active {
+        color: red;
+    }
+</style>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+      
+        <div :style="{color: 'red','font-size': '30px'}">测试</div>
+        <div :style="{color: 'red',fontSize: '30px'}">测试</div>
+        <div :style="[styleObj,style2Obj]">hhhhhhhh</div>
+
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        Vue.createApp({
+            template: '#my-app',
+            data() {
+                return {
+                    message: "Hello World",
+                    classObj: {
+                        active: true,
+                        title: true
+                    },
+                    isActive: true,
+                    styleObj: {
+                        'font-size': '30px',
+                        'fontWeight': 500
+                    },
+                    style2Obj: {
+                        backgroundColor: 'pink'
+                    }
+                }
+            },
+            methods: {
+                getClassObj(){
+                    return  {
+                            active: true,
+                            title: true
+                        }
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+{
+	"create vue3": {
+		"prefix": "vbase",
+		"description": "create vue3",
+		"body": [
+			"<template>",
+  			"<div></div>",
+			"</template>",
+
+			"<script>",
+
+			"export default {}",
+			"</script>",
+
+			"<style scoped>",
+
+			"</style>"
+		]
+	}
+}

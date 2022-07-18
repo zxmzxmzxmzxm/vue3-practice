@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <h2>{{message}}</h2>
+        <!-- 可以是表达式 -->
+        <h2>{{isShow ? '张小美' : ''}}</h2>
+        <!-- 可以是computed -->
+        <h2>{{getReverse()}}</h2>
+        <button @click="toggle">切换</button>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        Vue.createApp({
+            template: '#my-app', //本质是执行querySelector
+            data() {
+                return {
+                    message: "Hello World",
+                    isShow: true
+                }
+            },
+            methods: {
+                getReverse() {
+                    return this.message.split(' ').reverse().join(' ')
+                },
+                toggle() {
+                    this.isShow = !this.isShow
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
